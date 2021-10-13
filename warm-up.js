@@ -48,3 +48,42 @@
     return jumps; // return the final count
 }
 
+/* * 
+ ! Two Number Sum
+ * Write a function that takes in a non empty array of distinct integers,
+ * and a target sum. Return any two numbers that add up to the target sum.
+ * if no two nums exist return empty array
+ ? Two Number Sum has the following parameter(s):
+ ? int c[n]: an array of non empty integers
+ ? int: the target sum
+ ? Return the two nums that add up to the target sum
+ * */
+
+ function twoNumberSum(array, targetSum) {
+    // Write your code here.
+  const prevValues = {}; // create hash table
+      for (const num of array) { // looping over the array and getting each num
+          const potentialMatch = targetSum - num; // helper var to store our math 
+          if (potentialMatch in prevValues) { // condtional statement to compare math
+              return [potentialMatch, num]; // return the match and the num
+          } else { // or else
+              prevValues[num] = true; // if we already have what we are looking for, return it
+          }
+      }
+      return[]; // if not return empty array
+  }
+  
+  /* 
+  input = an array of integers and a target sum we are trying to reach
+  output = array of num1 and num2
+  
+  output = an array with [potentialMatch, num]
+  
+  use a hashtable, create var called const prevValues = {}
+  create a varible called potentialMatch to hold the equation ==
+  equations = loop over the array and compare each index to the target value with subtraction
+  return an array with numbers [1,3]
+  
+  */
+
+
