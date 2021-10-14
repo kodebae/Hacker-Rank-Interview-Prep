@@ -49,7 +49,7 @@
 }
 
 /* * 
- ! Two Number Sum
+ ! Two Number Sum 0(n) ST
  * Write a function that takes in a non empty array of distinct integers,
  * and a target sum. Return any two numbers that add up to the target sum.
  * if no two nums exist return empty array
@@ -83,7 +83,36 @@
   create a varible called potentialMatch to hold the equation ==
   equations = loop over the array and compare each index to the target value with subtraction
   return an array with numbers [1,3]
-  
+  ! Be sure to return empty array if sum not found
+  ! problem stated array was not empty so we don't have to check for that edgecase.
+  ! if there is only one num in the array the code should return just an empty array.
   */
+
+
+
+  /** Validate the Subsequence
+   * compare two non empty arrays 
+   * to find out if the second array is a subsequnce of the main array
+   * input = two non empty arrays
+  * output = boolean
+  * we need a func -> iterates over the main arrray
+  * compare indexes with pointers
+  * if statement that moves the pointers depending on comparison
+  * if we make it to the end of the seq array it's true
+  */
+
+   function isValidSubsequence(array, sequence) {
+    // Write your code here.
+      let arrPoint = 0; // storing our array pointer
+      let seqPoint = 0; // storing our sequence pointer
+      while (arrPoint < array.length && seqPoint < sequence.length) { // while loop that breaks when no longer true
+          if (array[arrPoint] === sequence[seqPoint]) seqPoint++; // if pointer at array's index is equal to pointer at seq index move the seq pointer by one
+          arrPoint++; // if the pointers are not equal, move the array pointer over by one
+      }
+      return seqPoint === sequence.length; // return true if we make it to the end of the seq array
+  }
+  
+
+
 
 
